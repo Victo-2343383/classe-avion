@@ -11,6 +11,7 @@ namespace Biblio
         private string _nom;
         private char _lettre;
         private int _numero;
+        private DateTime _naissance;
 
         private char[] ordre =
         {
@@ -22,11 +23,12 @@ namespace Biblio
             'D'
         };
 
-        public Passager(string nom, char lettre, int numero)
+        public Passager(string nom, char lettre, int numero, DateTime naissance)
         {
             Nom = nom;
             Lettre = lettre;
             Numero = numero;
+            Naissance = naissance;
         }
 
         public int CompareTo(Passager? other)
@@ -50,6 +52,7 @@ namespace Biblio
         public string Nom { get => _nom; private set => _nom = value; }
         public char Lettre { get => _lettre; private set => _lettre = value; }
         public int Numero { get => _numero; private set => _numero = value; }
+        public DateTime Naissance { get => _naissance; private set => _naissance = value; }
         #endregion
     }
 }

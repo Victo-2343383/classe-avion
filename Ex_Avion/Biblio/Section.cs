@@ -59,7 +59,7 @@ namespace Biblio
                 }
                 else if (Curseur < 6)
                 {
-                    BancsDroite[positionBancs[passager.Lettre] - 3].Passager = passager;
+                    BancsDroite[5 - positionBancs[passager.Lettre]].Passager = passager;
                 }
                 else { throw new ArgumentOutOfRangeException(); }
 

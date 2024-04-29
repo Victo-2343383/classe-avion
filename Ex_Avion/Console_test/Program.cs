@@ -7,12 +7,12 @@ namespace Console_test
         {
             Passager[] passagers = new Passager[]
             {
-                new Passager("Noah", 'A', 12),
-                new Passager("Liam", 'B', 12),
-                new Passager("Edouard", 'C', 11),
-                new Passager("Rose", 'F', 12),
-                new Passager("Olivia", 'E', 12),
-                new Passager("Florence", 'D', 12)
+                new Passager("Noah", 'A', 12, new DateTime()),
+                new Passager("Liam", 'B', 12, new DateTime()),
+                new Passager("Edouard", 'C', 11, new DateTime()),
+                new Passager("Rose", 'F', 12, new DateTime()),
+                new Passager("Olivia", 'E', 12, new DateTime()),
+                new Passager("Florence", 'D', 12, new DateTime())
             };
 
 
