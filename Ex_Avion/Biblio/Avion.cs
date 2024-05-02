@@ -46,10 +46,10 @@ namespace Biblio
             }
         }
         /// <summary>
-        /// remplis les rangées avec les passagers envoyés
+        /// remplis les rangées avec les passagers envoyés (ne pas envoyer de positions dupliquées ou quelqu'un va mystérieusement disparaitre
         /// </summary>
         /// <param name="passagers">passagers à mettre dans l'avion. (pas besoin de les mettre en ordre</param>
-        private void Remplir(Passager[] passagers)
+        public void Remplir(Passager[] passagers)
         {
             Array.Sort(passagers);
             foreach (Passager passager in passagers)
@@ -57,6 +57,25 @@ namespace Biblio
                 Sections[passager.Numero].AjouterPassager(passager);
             }
         }
+        /// <summary>
+        /// décharge l'avion
+        /// </summary>
+        /// <returns>Les passagers sortis de l'avion</returns>
+        public List<Passager> Decharcher()
+        {
+            List<Passager> output = new List<Passager>();
+
+
+            for (int i = Sections.Length-1; i > -1; i--) 
+            {
+                output.AddRange(Sections[i].DechargerPassagers());
+            }
+
+
+            return output;
+        }
+
+
 
         /// <summary>
         /// ToString de l'avion pour qu'il soit lisible

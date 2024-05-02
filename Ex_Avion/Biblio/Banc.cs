@@ -26,6 +26,25 @@
         }
 
         /// <summary>
+        /// vide le banc et retourne le passager
+        /// </summary>
+        /// <returns></returns>
+        public Passager Vider()
+        {
+            if (Passager == null) return null;
+
+
+            Passager output = new Passager(Passager.Nom, Passager.Lettre, Passager.Numero, Passager.Naissance);
+            Passager = null;
+            return output;
+        }
+
+        public void Ajouter(Passager passager)
+        {
+            Passager = passager;
+        }
+
+        /// <summary>
         /// ToString du banc.
         /// </summary>
         /// <returns>Retourne la prenière lettre du nom du passager, retourne un '_' si le siège est vide</returns>
@@ -46,6 +65,12 @@
         /// <summary>
         /// passager sur le siège.
         /// </summary>
-        public Passager Passager { get => _passager; set => _passager = value; }
+        public Passager Passager { 
+            get => _passager;
+            private set
+            {
+                _passager = value;
+            }
+        }
     }
 }

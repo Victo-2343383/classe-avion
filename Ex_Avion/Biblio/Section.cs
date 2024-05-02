@@ -72,17 +72,42 @@ namespace Biblio
             {
                 if (Curseur < 3 && positionBancs[passager.Lettre] < 3)
                 {
-                    BancsGauche[positionBancs[passager.Lettre]].Passager = passager;
+                    BancsGauche[positionBancs[passager.Lettre]].Ajouter(passager);
                 }
                 else if (Curseur < 6)
                 {
-                    BancsDroite[5 - positionBancs[passager.Lettre]].Passager = passager;
+                    BancsDroite[5 - positionBancs[passager.Lettre]].Ajouter(passager);
                 }
                 else { throw new ArgumentOutOfRangeException(); }
 
                 Curseur = positionBancs[passager.Lettre];
             }
             else throw new ArgumentOutOfRangeException("Conflit d'espace. Vous avez sur-booké.");
+        }
+        /// <summary>
+        /// décharge les passagers de la section
+        /// </summary>
+        /// <returns>les passagers déchargés</returns>
+        public List<Passager> DechargerPassagers()
+        {
+            List<Passager> output = new List<Passager>();
+
+            for (int i = BancsGauche.Length-1; i > -1; i--)
+            {
+                if (BancsGauche[i] is not null)
+                {
+                    output.Add(BancsGauche[i].Vider());
+                }
+            }
+            for (int i = 0; i < BancsDroite.Length; i++)
+            {
+                if (BancsDroite[i] is not null)
+                {
+                    output.Add(BancsDroite[i].Vider());
+                }
+            }
+
+            return output;
         }
 
         /// <summary>
